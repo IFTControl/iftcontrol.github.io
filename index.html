@@ -59,13 +59,13 @@
       
       // Draw the particles
       ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.beginPath();
       for (let i = 0; i < particles.length; i++) {
         const particle = particles[i];
-        ctx.moveTo(particle.x, particle.y);
+        ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.fill();
       }
-      ctx.fill();
       
       // Update particle positions
       for (let i = 0; i < particles.length; i++) {
