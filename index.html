@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spacey Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    canvas {
+      display: block;
+    }
+    
+    .logo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <img src="path/to/your-brand-logo.png" class="logo" alt="Logo">
+  
+  <script>
+    // Create the canvas
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas dimensions to cover the whole window
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Create an array to store the animated particles
+    const particles = [];
+    
+    // Function to create a new particle
+    function createParticle() {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const size = Math.random() * 4 + 1;
+      const speedX = Math.random() * 3 - 1.5;
+      const speedY = Math.random() * 3 - 1.5;
+      particles.push({ x, y, size, speedX, speedY });
+    }
+    
+    // Function to animate the particles
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw the particles
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.beginPath();
+      for (let i = 0; i < particles.length; i++) {
+        const particle = particles[i];
+        ctx.moveTo(particle.x, particle.y);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      
+      // Update particle positions
+      for (let i = 0; i < particles.length; i++) {
+        const particle = particles[i];
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        
+        // Remove particles that go off-screen
+        if (particle.x + particle.size < 0 || particle.x - particle.size > canvas.width ||
+            particle.y + particle.size < 0 || particle.y - particle.size > canvas.height) {
+          particles.splice(i, 1);
+          i--;
+        }
+      }
+      
+      // Create new particles
+      if (particles.length < 100) {
+        createParticle();
+      }
+    }
+    
+    // Initialize the animation
+    animate();
+    
+    // Resize the canvas when the window size changes
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
