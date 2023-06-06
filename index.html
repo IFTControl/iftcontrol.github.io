@@ -3,99 +3,61 @@
 <head>
   <title>Spacey Website</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #111111;
-    }
-    
-    canvas {
-      display: block;
-    }
-    
-    .logo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      width: auto;
-      height: auto;
-    }
+   @import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Bitter', serif;
+}
+* {
+    box-sizing: border-box;
+}
+#net{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.content{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 150px;
+    text-align: center;
+    color: #fff;
+    transform: translate(-50%, -50%);
+}
+h1{
+  font-size: 2.5rem;
+}
   </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
-  <img src="img/IFT_LogoWhite.png" class="logo" alt="Logo">
+  <div class="content">
+    <h1>Vanta.js</h1>
+    <img src="img/IFT_LogoWhite.png" class="logo" alt="Logo">
+</div>
+<div id="net">
+</div>
+ 
   
   <script>
-    // Create the canvas
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    // Set canvas dimensions to cover the whole window
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    // Create an array to store the animated particles
-    const particles = [];
-    
-    // Function to create a new particle
-    function createParticle() {
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height;
-      const size = Math.random() * 4 + 1;
-      const speedX = Math.random() * 3 - 1.5;
-      const speedY = Math.random() * 3 - 1.5;
-      particles.push({ x, y, size, speedX, speedY });
-    }
-    
-    // Function to animate the particles
-    function animate() {
-      requestAnimationFrame(animate);
-      
-      // Clear the canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw the particles
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      for (let i = 0; i < particles.length; i++) {
-        const particle = particles[i];
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.fill();
-      }
-      
-      // Update particle positions
-      for (let i = 0; i < particles.length; i++) {
-        const particle = particles[i];
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-        
-        // Remove particles that go off-screen
-        if (particle.x + particle.size < 0 || particle.x - particle.size > canvas.width ||
-            particle.y + particle.size < 0 || particle.y - particle.size > canvas.height) {
-          particles.splice(i, 1);
-          i--;
-        }
-      }
-      
-      // Create new particles
-      if (particles.length < 100) {
-        createParticle();
-      }
-    }
-    
-    // Initialize the animation
-    animate();
-    
-    // Resize the canvas when the window size changes
-    window.addEventListener('resize', function() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+    VANTA.NET({
+  el: "#net",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x3fe8ff,
+  backgroundColor: 0xf2a52
+})
   </script>
 </body>
 </html>
