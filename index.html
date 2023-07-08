@@ -3,41 +3,45 @@
 <head>
   <title>IFT Control</title>
   <style>
-   @import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
 
-body{
-  padding: 0;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  color: #666666;
-}
-* {
-    box-sizing: border-box;
-}
-a {
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      color: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
       color: #4285F4;
       text-decoration: none;
     }
-#net{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-}
 
-.content{
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    top: 50%;
-    width: 600px;
-    height: 150px;
-    text-align: center;
-    color: #fff;
-    transform: translate(-50%, -50%);
-}
-.logo {
+    #net {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .content {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 150px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .logo {
       font-size: 2.5rem;
       position: fixed;
       top: 50%;
@@ -47,75 +51,86 @@ a {
       width: auto;
       height: auto;
     }
-    #address {
-      margin-top: 10px;
-      font-size: 18px;
-    }
+
     #slogan {
-      margin-top: 104px;
+      margin-top: 110px;
       display: flex;
       justify-content: end;
       font-size: 10px;
     }
 
+    #address {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
     #contact {
-      margin-top: 2px; 
+      margin-top: 2px;
       padding: 2px;
       font-size: 18px;
     }
-    .login-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+
+    .login-buttons-container {
+      text-align: right;
+    }
+
+    .login-button,
+    .clients-button {
+      display: inline-block;
       background-color: #222222;
-      color: #FFFFFF;
+      color: #ffffff;
       padding: 10px 20px;
       border-radius: 4px;
+      margin-top: 2px;
+      margin-left: 1px;
+      margin-right: 1px;
+      transition: background-color 0.3s;
+      position: relative;
+      z-index: 3;
     }
-  
+
+    .login-button:hover,
+    .clients-button:hover {
+      background-color: #444444;
+    }
   </style>
 </head>
 <body>
   <div id="net"></div>
+   <div class="login-buttons-container">
+      <a class="login-button" href="https://n8n.iftcontrol.com/">Login</a>
+      <a class="clients-button" href="https://invoice.iftcontrol.com/client/login">Clients</a>
+    </div>
   <div class="content">
     <img src="img/IFT_LogoWhite.png" class="logo" alt="Logo">
     <div id="slogan">
-      IF Then Control |   Automation company
-     </div>
-     <div id="address">
-       Nolsebaan 31, 2910 Essen, België <br>
-       BE 0768.632.057
-     </div>
-     <div id="contact">
-       <h3 >Contact</h3>
-       Email: <a href="mailto:mail@iftcontrol.com">mail@iftcontrol.com</a>
-      </div>
-    
+      IF Then Control | Automation company
+    </div>
+    <div id="address">
+      Nolsebaan 31, 2910 Essen, België <br>
+      BE 0768.632.057
+    </div>
+    <div id="contact">
+      <h3>Contact</h3>
+      Email: <a href="mailto:mail@iftcontrol.com">mail@iftcontrol.com</a>
+    </div>
   </div>
-     
-</div>
 
-
-<a class="login-button" href="https://invoice.iftcontrol.com">Login</a>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
   <script>
     VANTA.NET({
-  el: "#net",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0x3fe8ff,
-  backgroundColor: 0x1111
-})
+      el: "#net",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x3fe8ff,
+      backgroundColor: 0x1111
+    });
   </script>
 </body>
 </html>
-
