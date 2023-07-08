@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spacey Website</title>
+  <title>IFT Control</title>
   <style>
    @import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
 
 body{
   padding: 0;
   margin: 0;
-  font-family: 'Bitter', serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #666666;
 }
 * {
     box-sizing: border-box;
 }
+a {
+      color: #4285F4;
+      text-decoration: none;
+    }
 #net{
   width: 100%;
   height: 100%;
@@ -25,7 +31,7 @@ body{
     z-index: 2;
     left: 50%;
     top: 50%;
-    width: 400px;
+    width: 600px;
     height: 150px;
     text-align: center;
     color: #fff;
@@ -41,15 +47,45 @@ body{
       width: auto;
       height: auto;
     }
+    #address {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    #slogan {
+      margin-top: 104px;
+      display: flex;
+      justify-content: end;
+      font-size: 10px;
+    }
+
+    #contact {
+      margin-top: 2px; 
+      padding: 2px;
+      font-size: 18px;
+    }
+  
   </style>
 </head>
 <body>
+  <div id="net"></div>
   <div class="content">
     <img src="img/IFT_LogoWhite.png" class="logo" alt="Logo">
+    <div id="slogan">
+      IF Then Control | Automation company
+     </div>
+     <div id="address">
+       Nolsebaan 31, 2910 Essen, België <br>
+       BE 0768.632.057
+     </div>
+     <div id="contact">
+       <h3 >Contact</h3>
+       Email: <a href="mailto:mail@iftcontrol.com">mail@iftcontrol.com</a>
+      </div>
+    
+  </div>
+     
 </div>
-<div id="net">
-</div>
- 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 
@@ -69,3 +105,4 @@ body{
   </script>
 </body>
 </html>
+
