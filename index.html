@@ -36,6 +36,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
       width: 600px;
+      max-width: 90%;
       height: 150px;
       text-align: center;
       color: #fff;
@@ -48,14 +49,14 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 999;
-      width: auto;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     #slogan {
       margin-top: 110px;
       display: flex;
-      justify-content: end;
+      justify-content: space-around;
       font-size: 10px;
     }
 
@@ -122,12 +123,12 @@
     VANTA.NET({
       el: "#net",
       mouseControls: true,
-      touchControls: false,
+      touchControls: true,
       gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
+      minHeight: 300.00,
+      minWidth: 300.00,
+      scale: 1.50,
+      scaleMobile: 0.50,
       color: 0x3fe8f9,
       backgroundColor: 0x1114
     });
